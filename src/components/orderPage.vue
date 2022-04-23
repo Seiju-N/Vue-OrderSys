@@ -1,11 +1,21 @@
 <template>
   <div class="outline">
     <div class="panel">
-      left
+      <div class="title">
+        商品リスト
+      </div>
       <order-button v-for="product in products" :key="product.name" :product="product" @buy="buy(product)"></order-button>
     </div>
     <div class="panel">
-      right
+      <div class="title">
+        お会計
+      </div>
+      <div>
+        {{ count }}
+      </div>
+      <div>
+        {{ totalPrice }}
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +57,7 @@ const beer : drink = {
 }
 
 let products : Array<drink> = [coffee, tea, milk, coke, beer];
+let cart : Array<drink> = [];
 
 @Options({
   components: { orderButton },
@@ -55,13 +66,18 @@ let products : Array<drink> = [coffee, tea, milk, coke, beer];
   data(){
     return {
       products : products,
+      totalPrice : 0,
+      count : 0,
     }
   },
   methods:{
-    buy(product : object){
-        console.log(product);
+    buy(product : drink){
+      cart.push(product);
+      console.log(cart.length);
+      this.totalPrice += product.price;
+      this.count = cart.length;
     }
-  }
+  },
 })
 export default class orderPage extends Vue {
 }
