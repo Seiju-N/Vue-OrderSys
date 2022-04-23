@@ -74,7 +74,7 @@ let cart : Array<drink> = [];
     buy(product : drink){
       cart.push(product);
       console.log(cart.length);
-      this.totalPrice += product.price;
+      this.totalPrice = cart.reduce((sum, pd) => sum + pd.price, 0);
       this.count = cart.length;
     }
   },
