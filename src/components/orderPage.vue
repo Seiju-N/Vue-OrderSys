@@ -4,7 +4,7 @@
       <div class="title">
         商品リスト
       </div>
-      <order-button v-for="product in products" :key="product.name" :product="product" @buy="buy(product)"></order-button>
+      <order-button v-for="product in products" :key="product.name" :id="product.name" :product="product" :count="product_count" @buy="buy(product)"></order-button>
     </div>
     <div class="panel">
       <div class="title">
@@ -30,34 +30,42 @@ type drink = {
   price:number;
 }
 
-const coffee : drink = {
+let coffee : drink = {
   id:"coffee",
   name:"コーヒー",
   price:480,
 }
-const tea : drink = {
+let tea : drink = {
   id:"tea",
   name:"紅茶",
   price:280,
 }
-const milk : drink = {
+let milk : drink = {
   id:"milk",
   name:"ミルク",
   price:180,
 }
-const coke : drink = {
+let coke : drink = {
   id:"coke",
   name:"コーラ",
   price:190,
 }
-const beer : drink = {
+let beer : drink = {
   id:"beer",
   name:"ビール",
   price:580,
 }
 
+//商品リスト
 let products : Array<drink> = [coffee, tea, milk, coke, beer];
+//カート内の商品
 let cart : Array<drink> = [];
+//商品ごとの個数
+let product_count : {[key:string]: number} = {};
+products.forEach(function(product){
+  product_count[product.id] = 0;
+});
+
 
 @Options({
   components: { orderButton },
@@ -68,12 +76,13 @@ let cart : Array<drink> = [];
       products : products,
       totalPrice : 0,
       count : 0,
+      product_count : product_count,
     }
   },
   methods:{
     buy(product : drink){
       cart.push(product);
-      console.log(cart.length);
+      product_count[product.id] = product_count[product.id] + 1;
       this.totalPrice = cart.reduce((sum, pd) => sum + pd.price, 0);
       this.count = cart.length;
     }

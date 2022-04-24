@@ -30,15 +30,15 @@
     color: white;
     background-color: #ff4136;
     border-radius: 50%;
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1;
     min-width: 1em;
-    padding: 3px;
+    padding: 4px;
     box-shadow: 0px 0px 3px #999;
     bottom: 0;
     left: 0;
     transform: translate(110%, -80%);
-    content:"2";
+    content:attr(count);
 }
 .orderBtn input{
     display: none;
