@@ -5,7 +5,7 @@
    align-items: center;
    padding: 20px;
    width: 70vw;
-   height: 40vw;
+   height: 60vh;
    margin: 0 auto;
 }
 .panel{
@@ -16,4 +16,15 @@
 }
 .title{
     padding: 12px 0;
+}
+.right{
+    display:flex;
+    align-items:center;
+}
+.panel-back{
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px #999;
 }

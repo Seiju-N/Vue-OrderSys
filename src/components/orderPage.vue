@@ -1,20 +1,22 @@
 <template>
   <div class="outline">
-    <div class="panel">
+    <div class="panel left">
       <div class="title">
         商品リスト
       </div>
-      <order-button v-for="product in products" :key="product.name" :id="product.name" :product="product" :count="product_count" @buy="buy(product)"></order-button>
+      <order-button v-for="product in products" :key="product.id" :id="product.name" :product="product" :count="product_count" @buy="buy(product)"></order-button>
     </div>
-    <div class="panel">
-      <div class="title">
-        お会計
-      </div>
-      <div>
-        {{ count }}
-      </div>
-      <div>
-        {{ totalPrice }}
+    <div class="panel right">
+      <div class="panel-back">
+        <div class="title">
+          お会計
+        </div>
+        <div>
+          商品数 : <span id="count">{{ count }}</span>
+        </div>
+        <div>
+          合計金額 : <span id="price">{{ totalPrice }}</span>
+        </div>
       </div>
     </div>
   </div>
