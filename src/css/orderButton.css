@@ -1,0 +1,54 @@
+.parent{
+    padding: 12px;
+    font-size: 20px;
+}
+.orderBtn{
+    box-shadow: 0px 0px 2px #999;
+    border-radius: 6px;
+    background-color: white;
+    width: 50%;
+    max-width: 250px;
+    min-width: 130px;
+    margin: 4px auto;
+}
+
+.orderBtn:hover{
+    background-color: white;
+    box-shadow: 0px 0px 4px #777;
+}
+
+.orderBtn label{
+    display: flex;
+    padding: 4px 14px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.counter {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+    background-color: #ff4136;
+    border-radius: 50%;
+    font-size: 0.8em;
+    line-height: 1;
+    min-width: 1em;
+    padding: 4px;
+    box-shadow: 0px 0px 3px #999;
+    bottom: 0;
+    left: 0;
+    transform: translate(110%, -80%);
+    content:attr(count);
+}
+.orderBtn button{
+    display: none;
+}
+.productName{
+    width: 60%;
+    text-align: left;
+}
+.productPrice{
+    font-size: 0.9em;
+    width: auto;
+}
